@@ -150,12 +150,8 @@ config = DetrConfig.from_pretrained('facebook/detr-resnet-50')
 config.dropout = 0.5  
 config.classifier_dropout = 0.2
 
-config.num_labels = 2
-config.id2label = {0: "normal", 1: "apnea"}
-config.label2id = {"normal": 0, "apnea": 1}
-
 # Step 3: Initialize the DETR model
-model = DetrForObjectDetection.from_pretrained('facebook/detr-resnet-50', config=config, ignore_mismatched_sizes=True)
+model = DetrForObjectDetection.from_pretrained('facebook/detr-resnet-50', config=config)
 processor = DetrImageProcessor.from_pretrained('facebook/detr-resnet-50', do_rescale=False)  # Avoid rescaling images
 
 # Check if GPU is available and move model to GPU
