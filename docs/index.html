@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETR Project - Object Detection with Transformers</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__brand">
+                <h2><i class="fas fa-eye"></i> DETR Project</h2>
+            </div>
+            <ul class="nav__menu">
+                <li><a href="#overview" class="nav__link">Overview</a></li>
+                <li><a href="#features" class="nav__link">Features</a></li>
+                <li><a href="#setup" class="nav__link">Setup</a></li>
+                <li><a href="#usage" class="nav__link">Usage</a></li>
+                <li><a href="#models" class="nav__link">Models</a></li>
+                <li><a href="https://github.com/C-NPK/DETR_PROJECT" class="nav__link" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">DETR Object Detection Project</h1>
+                    <p class="hero__subtitle">
+                        Advanced object detection using Detection Transformer (DETR) architecture 
+                        with PyTorch and Hugging Face Transformers
+                    </p>
+                    <div class="hero__buttons">
+                        <a href="#setup" class="btn btn--primary">Get Started</a>
+                        <a href="https://github.com/C-NPK/DETR_PROJECT" class="btn btn--secondary" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section id="overview" class="section">
+            <div class="container">
+                <h2 class="section__title">Project Overview</h2>
+                <div class="grid grid--2">
+                    <div>
+                        <h3>What is DETR?</h3>
+                        <p>
+                            DETR (Detection Transformer) is a novel approach to object detection that treats 
+                            object detection as a direct set prediction problem. Unlike traditional detection 
+                            methods, DETR eliminates the need for hand-designed components like anchor 
+                            generation and non-maximum suppression.
+                        </p>
+                        <h3>About This Project</h3>
+                        <p>
+                            This project implements DETR-based object detection using the SHHS dataset. 
+                            It includes multiple training configurations, early stopping mechanisms, 
+                            and confidence dropout techniques for improved model performance.
+                        </p>
+                    </div>
+                    <div class="highlight-box">
+                        <h3><i class="fas fa-rocket"></i> Key Highlights</h3>
+                        <ul>
+                            <li>🎯 State-of-the-art transformer-based object detection</li>
+                            <li>🔧 Multiple training configurations and strategies</li>
+                            <li>📊 Built-in validation and performance tracking</li>
+                            <li>🛡️ Early stopping and regularization techniques</li>
+                            <li>💾 Automatic model checkpointing</li>
+                            <li>📈 Training and validation loss visualization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="section section--gray">
+            <div class="container">
+                <h2 class="section__title">Features</h2>
+                <div class="grid grid--3">
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Transformer Architecture</h3>
+                        <p>Leverages the power of transformer networks for accurate object detection without traditional anchor-based methods.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Multiple Training Modes</h3>
+                        <p>Includes basic training (train0.py) and advanced training with early stopping and confidence dropout (train2.py).</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Performance Monitoring</h3>
+                        <p>Comprehensive validation tracking, loss monitoring, and automatic best model saving based on validation performance.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>SHHS Dataset Support</h3>
+                        <p>Custom dataset loader specifically designed for the SHHS (Shanghai Head Human Surveillance) dataset format.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <i class="fas fa-stopwatch"></i>
+                        </div>
+                        <h3>Early Stopping</h3>
+                        <p>Intelligent early stopping mechanism to prevent overfitting and optimize training efficiency.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <i class="fas fa-save"></i>
+                        </div>
+                        <h3>Model Checkpointing</h3>
+                        <p>Automatic saving of best models and training metrics for reproducibility and model analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Setup Section -->
+        <section id="setup" class="section">
+            <div class="container">
+                <h2 class="section__title">Installation & Setup</h2>
+                <div class="setup-content">
+                    <h3>Prerequisites</h3>
+                    <p>Before getting started, ensure you have the following installed:</p>
+                    <ul>
+                        <li>Python 3.8 or higher</li>
+                        <li>CUDA-compatible GPU (recommended for training)</li>
+                        <li>Git for version control</li>
+                    </ul>
+
+                    <h3>Installation Steps</h3>
+                    <div class="code-block">
+                        <h4>1. Clone the Repository</h4>
+                        <pre><code># Clone the project
+git clone https://github.com/C-NPK/DETR_PROJECT.git
+cd DETR_PROJECT</code></pre>
+                    </div>
+
+                    <div class="code-block">
+                        <h4>2. Install Dependencies</h4>
+                        <pre><code># Install required packages
+pip install torch torchvision
+pip install transformers
+pip install pillow numpy
+pip install json time collections</code></pre>
+                    </div>
+
+                    <div class="code-block">
+                        <h4>3. Prepare Your Dataset</h4>
+                        <pre><code># Organize your dataset in the following structure:
+dataset/
+├── train/
+│   ├── Images/
+│   └── Annotations/
+├── val/
+│   ├── Images/
+│   └── Annotations/
+└── test/
+    ├── Images/
+    └── Annotations/</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Section -->
+        <section id="usage" class="section section--gray">
+            <div class="container">
+                <h2 class="section__title">Usage Guide</h2>
+                <div class="usage-content">
+                    <h3>Training Configuration</h3>
+                    <p>Before training, update the dataset paths in your training script:</p>
+                    
+                    <div class="code-block">
+                        <h4>Update Dataset Paths</h4>
+                        <pre><code># Update these paths in your training script
+train_images_path = "path/to/your/dataset/train/Images"
+train_json_path = "path/to/your/dataset/train/Annotations"
+val_images_path = "path/to/your/dataset/val/Images"
+val_json_path = "path/to/your/dataset/val/Annotations"</code></pre>
+                    </div>
+
+                    <h3>Training Options</h3>
+                    <div class="grid grid--2">
+                        <div class="training-option">
+                            <h4><i class="fas fa-play"></i> Basic Training</h4>
+                            <p>Use <code>train0.py</code> for standard DETR training:</p>
+                            <pre><code>python train0.py</code></pre>
+                            <ul>
+                                <li>Standard training loop</li>
+                                <li>Best model saving based on validation loss</li>
+                                <li>Training and validation loss tracking</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="training-option">
+                            <h4><i class="fas fa-advanced"></i> Advanced Training</h4>
+                            <p>Use <code>train2_earlystop_confdropout.py</code> for enhanced training:</p>
+                            <pre><code>python train2_earlystop_confdropout.py</code></pre>
+                            <ul>
+                                <li>Early stopping mechanism</li>
+                                <li>Confidence dropout regularization</li>
+                                <li>Patience-based training termination</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Models Section -->
+        <section id="models" class="section">
+            <div class="container">
+                <h2 class="section__title">Model Information</h2>
+                <div class="models-content">
+                    <h3>Base Model</h3>
+                    <p>This project uses the pre-trained DETR model from Facebook Research:</p>
+                    <ul>
+                        <li><strong>Model:</strong> facebook/detr-resnet-50</li>
+                        <li><strong>Backbone:</strong> ResNet-50</li>
+                        <li><strong>Framework:</strong> PyTorch via Hugging Face Transformers</li>
+                    </ul>
+
+                    <h3>Training Outputs</h3>
+                    <div class="grid grid--2">
+                        <div class="output-info">
+                            <h4>Model Files</h4>
+                            <ul>
+                                <li><code>best_model0.pth</code> - Best model from basic training</li>
+                                <li><code>last_model0.pth</code> - Final model from basic training</li>
+                                <li><code>best_model2.pth</code> - Best model from advanced training</li>
+                                <li><code>last_model2.pth</code> - Final model from advanced training</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="output-info">
+                            <h4>Training Metrics</h4>
+                            <ul>
+                                <li><code>model0_training_losses.npy</code> - Training loss history</li>
+                                <li><code>model0_validation_losses.npy</code> - Validation loss history</li>
+                                <li><code>model2_training_losses.npy</code> - Advanced training losses</li>
+                                <li><code>model2_validation_losses.npy</code> - Advanced validation losses</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section section--dark">
+            <div class="container">
+                <h2 class="section__title">Get Involved</h2>
+                <div class="contact-content">
+                    <div class="grid grid--2">
+                        <div>
+                            <h3><i class="fas fa-code-branch"></i> Contributing</h3>
+                            <p>We welcome contributions! Here's how you can help:</p>
+                            <ul>
+                                <li>Report bugs and issues</li>
+                                <li>Suggest new features</li>
+                                <li>Submit pull requests</li>
+                                <li>Improve documentation</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3><i class="fas fa-question-circle"></i> Support</h3>
+                            <p>Need help? Here are your options:</p>
+                            <ul>
+                                <li>Check the documentation above</li>
+                                <li>Open an issue on GitHub</li>
+                                <li>Review existing issues for solutions</li>
+                                <li>Contribute to the community discussion</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cta-section">
+                        <a href="https://github.com/C-NPK/DETR_PROJECT" class="btn btn--primary" target="_blank">
+                            <i class="fab fa-github"></i> Visit GitHub Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p>&copy; 2024 DETR Project. Built with ❤️ for the computer vision community.</p>
+                <div class="footer__links">
+                    <a href="https://github.com/C-NPK/DETR_PROJECT" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+# GitHub Pages Configuration
+title: DETR Object Detection Project
+description: Advanced object detection using Detection Transformer (DETR) architecture with PyTorch and Hugging Face Transformers
+url: "https://c-npk.github.io"
+baseurl: "/DETR_PROJECT"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO settings
+author: C-NPK
+twitter:
+  username: 
+github:
+  username: C-NPK
+  repository_url: https://github.com/C-NPK/DETR_PROJECT
+
+# Social media and links
+social_links:
+  github: C-NPK
+
+# Exclude files from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - scripts/
+  - train0.py
+  - train2_earlystop_confdropout.py
+  - "*.pth"
+  - "*.npy"
+  - .git/
+  - .gitignore
+
+# Include files
+include:
+  - docs/
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "default"
+
+# Sass configuration
+sass:
+  sass_dir: docs/assets/css
+  style: compressed
